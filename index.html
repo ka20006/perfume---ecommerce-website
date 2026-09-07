@@ -1235,6 +1235,35 @@ const PRODUCT_DATA = [{"id": 0, "name": "Bella Vita White Oud", "price": 464, "i
     });
 
     renderCart();
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const whatsappNumber = "919879055503";
+
+    const whatsappMessage =
+`*NEW CONTACT MESSAGE*%0A%0A` +
+`*Name:* ${encodeURIComponent(name)}%0A` +
+`*Email:* ${encodeURIComponent(email)}%0A` +
+`*Message:* ${encodeURIComponent(message)}%0A%0A` +
+`Thank you!`;
+
+    window.open(
+        `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
+        "_blank"
+    );
+
+    document.getElementById("successMessage").style.display = "block";
+
+    setTimeout(() => {
+        document.getElementById("successMessage").style.display = "none";
+    }, 3000);
+
+    this.reset();
+});
 
   </script>
 
